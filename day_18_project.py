@@ -1,19 +1,30 @@
 #This is a reclaim of the HIRST painting project. 
 # I will be using the turtle module to create a painting similar to the one created by HIRST.
 
-#step 1: import modules screen and turtle
+# import modules screen and turtle
 import turtle
 from turtle import Turtle, Screen
 import random
 
-#step 2: set up the screen and turtle
+#set up the screen and turtle
 turtle.colormode(255) # set the color mode to 255
 screen = Screen()
 t = Turtle()
 
+#using the colorgram module to extract the colors from the image.
+import colorgram 
+colors = colorgram.extract('image.jpg', 30)
+rgb_colors = []
 
+#loop through the colors and extract the rgb values of the colors.
+for color in colors:
+    r = color.rgb.r
+    g = color.rgb.g
+    b = color.rgb.b
+    new_color = (r, g, b)
+    rgb_colors.append(new_color)
 
-
+#list of rgb colors extracted from the image.
 rgb_colors = [
 	(234, 232, 227), (230, 233, 239), (239, 231, 235), (228, 235, 231), (199, 162, 100), (62, 91, 128), (140, 170, 192),
 			   (139, 90, 48), (219, 206, 119), (135, 27, 52), (32, 41, 67), (78, 16, 36), (149, 59, 85), (167, 154, 49),
